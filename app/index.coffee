@@ -63,7 +63,7 @@ class Setup extends Config
 
       .state 'contact',
         url: '/contact'
-        templateUrl: '/app/page/page.html'
+        templateUrl: '/app/contact/contact.html'
         controller: 'page as page'
         resolve:
           promiseData: (imagoModel) ->
