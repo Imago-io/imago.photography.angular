@@ -1,0 +1,83 @@
+.images
+  h2(ng-if="::mobile") {{::page.data.fields.title.value}}
+
+  .item(ng-repeat="asset in page.filteredImages track by asset._id" id="{{asset._id}}")
+    div(ng-switch="page.productItem.type" fullsize-image)
+      imago-video(data="asset" ng-switch-when="video")
+      imago-image(data="asset" ng-switch-default lazy="false" align="left center")
+
+.info(stop-scroll)
+
+  h2(ng-if="::!mobile") {{::page.data.fields.title.value}}
+
+  .tabs
+    button.information(ng-click="page.tab = 'information'"
+      ng-class="{active: page.tab === 'information'}") Information
+    button.sizeAndFit(ng-click="page.tab = 'sizeAndFit'"
+      ng-class="{active: page.tab === 'sizeAndFit'}"
+      ng-show="page.data.fields.sizeAndFit.value") Size and Fit
+
+    div.information.text(
+      ng-bind-html="page.data.fields.information.value"
+      ng-show="page.tab === 'information'")
+    div.sizeAndFit.text(
+      ng-bind-html="page.data.fields.sizeAndFit.value"
+      ng-show="page.tab === 'sizeAndFit'")
+
+  //- pre {{page.productItem.frameColor}}
+  .options.frame-color(ng-show="page.productItem.options.frameColor[0]")
+    label Frame Color — {{page.productItem.frameColor || 'Choose'}}
+    .option(
+      ng-repeat="frameColor in page.productItem.options.frameColor track by frameColor.normname"
+      ng-class="{selected: frameColor.name === page.productItem.frameColor, notavailable: !page.productItem.findVariant(frameColor.name, page.productItem.lensTechnology)}"
+      )
+      button(
+        ng-click="page.productItem.setOption('frameColor', frameColor.name)"
+        style="background-color: {{::frameColor.color}};"
+        title="{{::frameColor.name}}"
+        class="{{::frameColor.normname}}"
+        )
+    .error(ng-show="page.productItem.error && !page.productItem.frameColor") Please frame color
+
+  //- pre {{page.productItem.lensTechnology}}
+  .options.lens-technology(ng-show="page.productItem.options.lensTechnology[0]")
+    label Lens Technology — {{page.productItem.lensTechnology || 'Choose'}}
+    .option(
+      ng-repeat="lensTechnology in page.productItem.options.lensTechnology track by lensTechnology.normname"
+      ng-class="{selected: lensTechnology.name === page.productItem.lensTechnology, notavailable: !page.productItem.findVariant(lensTechnology.name, page.productItem.frameColor)}"
+      )
+      button(
+        ng-click="page.productItem.setOption('lensTechnology', lensTechnology.name)"
+        style="background-color: {{::lensTechnology.color}};"
+        title="{{::lensTechnology.name}}"
+        class="{{::lensTechnology.normname}}"
+        )
+    .error(ng-show="page.productItem.error && !page.productItem.color") Please frame color
+
+  .message
+    .low-stock(ng-show="page.productItem.selected.stock < 9 && !page.productItem.selected.lowstock && !page.productItem.selected.stock <= 0 && !page.productItem.selected.presale") only a few left
+    .low-stock(ng-show="page.productItem.selected.lowstock && page.productItem.selected.stock !== 1 && !page.productItem.selected.presale") {{page.productItem.selected.stock}} items left
+    .low-stock(ng-show="page.productItem.selected.stock === 1 && !page.productItem.selected.presale") 1 item left
+    .no-stock(ng-show="(page.productItem.selected.stock <= 0 || !page.productItem.selected.stock) && !page.productItem.selected.presale && page.productItem.selected") Sold Out
+    .not-available(ng-show="page.productItem.selected === 0") Sorry, this combination is not available
+    .presale(ng-show="page.productItem.selected.presale") Presale: item will ship once available
+
+  .description(ng-bind-html="page.productItem.selected.fields.description.value")
+
+  .price(
+    ng-hide="page.productItem.selected === 0"
+    imago-find-price
+    attributes="['frameColor', 'lensTechnology']"
+    variants="page.productItem.variants"
+    product="page.productItem"
+    )
+
+  button.addToCart(
+    type="button"
+    ng-click="page.productItem.addToCart(page.productItem.selected, ['frameColor', 'lensTechnology'], ['title', 'description'])"
+    ng-disabled="!page.productItem.selected.stock && !page.productItem.selected.presale"
+    ) add to bag
+
+.images
+  .item
+    imago-image(data="page.extraImages[1]" lazy="false")

@@ -1,0 +1,22 @@
+html
+  box-sizing: border-box
+  -webkit-overflow-scrolling: touch
+  background: $anwander-global-background-color
+
+*, *:before, *:after
+  box-sizing: inherit
+
+body
+  min-height: 100vh
+  position: relative
+  text-align: center
+
+  main
+    min-height: 100vh
+    padding-top: $header-height
+    padding-bottom: $footer-height
+
+body.mobile
+  main
+    padding-top: $mobile-header-height
+    padding-bottom: $mobile-footer-height

@@ -1,0 +1,17 @@
+node_modules/
+bower_components/
+src/\.tmp*
+.*
+!/.gitignore
+!/.editorconfig
+!/.bowerrc
+tmp
+public/maps/
+public/coffee.js
+public/scripts.js
+public/templates.js
+public/application.*
+public/index.html
+public/i/*\ copy.*
+public/rev-manifest.json
+**/*.min.*

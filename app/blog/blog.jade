@@ -1,0 +1,26 @@
+section(deckgrid source="page.assets")
+  article(ng-repeat="asset in page.assets track by asset._id")
+    a.link.fa.fa-link.fa-2x(
+      ng-href="{{asset.fields.link.value}}"
+      ng-show="asset.fields.link.value"
+      target="_blank")
+
+    div.imago-image(data="asset" lazy="false")
+    h2 {{ asset.fields.title.value }}
+
+    div.tags
+      a(ng-repeat="tag in asset.fields.tags.value"
+        ui-sref="page.tags({tag:tag})") {{tag}}
+    div(
+      asset="asset"
+      )
+
+nav(
+  imago-pager
+  state="blog"
+  posts="page.assets"
+  path="/blog"
+  page-size="50"
+  tags="page.tags"
+  current-page="page.currentPage"
+  )

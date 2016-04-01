@@ -1,0 +1,16 @@
+.fullsize-slider(ng-show="fullsize.trigger")
+  div(ng-transclude)
+  .slider(
+    ng-if="fullsize.trigger"
+    imago-slider="fullsize.assets"
+    namespace="fullsize-slider"
+    length="{{fullsize.assets.length}}"
+    )
+    .slide(
+      ng-repeat="asset in imagoslider.assets track by asset._id"
+      ng-switch="asset.type"
+      ng-if="currentIndex === $index")
+      imago-video(data="asset" sizemode="fit" ng-switch-when="video")
+      imago-image(data="asset" sizemode="fit" ng-switch-default)
+
+    button.close(ng-click="fullsize.close($event)")

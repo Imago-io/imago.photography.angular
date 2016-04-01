@@ -1,0 +1,21 @@
+doctype html
+html(ng-app="app"
+  xmlns:og="http://opengraphprotocol.org/schema/"
+  xmlns:fb="http://www.facebook.com/2008/fbml"
+  xmlns:website="http://ogp.me/ns/website"
+  lang="en-US"
+  itemscope itemtype="http://schema.org/WebPage"
+  class="nojs")
+  head
+    include header
+
+  body(
+    ng-class="[mobileClass, state, path, {'navActive': navActive}]"
+    responsive-events imago-save-scroll)
+
+    header(headroom)
+    div(not-supported)
+    imago-main(ui-view ng-class="[state, path]")
+    footer
+
+    include backuptemplate

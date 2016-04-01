@@ -1,0 +1,8 @@
+main.list
+  section
+    .item(ng-repeat="item in ::page.data.assets track by item._id"
+      ng-class="item.fields.size.value || 'small'")
+      imago-image(data="item" lazy="false")
+      h2 {{::item.fields.title.value}}
+      h2 {{::item.fields.description.value}}
+      a(ng-href="{{item.path}}")

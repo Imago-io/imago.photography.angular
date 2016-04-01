@@ -1,0 +1,43 @@
+main.blog
+
+  section
+    width: 750px
+    margin: 0 auto
+    overflow-y: hidden
+    article
+      position: relative
+      margin-bottom: 4em
+      a.link
+        opacity: 0
+        +pos()
+
+      &:hover a.link
+        z-index: 100
+        opacity: 1
+
+      .tags
+
+
+      .share
+        a.fa:before
+          content: ''
+          font-size: 0.8125em
+          text-transform: lowercase
+          margin: 0 .25em
+        a.fa.fa-facebook:before
+          content: 'Facebook'
+        a.fa.fa-twitter:before
+          content: 'Twitter'
+        a.fa.fa-google:before
+          content: 'Google'
+        a.fa.fa-linkedin:before
+          content: 'Linked In'
+        a.fa.fa-tumblr:before
+          content: 'Tumblr'
+        a.fa.fa-pinterest:before
+          content: 'Pinterest'
+
+
+
+
+

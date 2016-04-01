@@ -1,0 +1,113 @@
+header
+  padding: 1em
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 10
+  transition: background 0.25s ease
+  background: $anwander-global-background-color
+
+  a.logo
+    text-transform: uppercase
+    font-weight: 800
+    display: block
+
+
+  nav
+    display: inline
+    vertical-align: top
+    padding-top: .3em
+    display: inline-block
+    a
+      vertical-align: top
+      text-transform: uppercase
+      font-size: .9em
+
+
+body.desktop
+  header
+    a.logo
+      font-size: 4em
+      margin: 0
+      padding: 0
+      margin-top: -.05em
+      margin-bottom: .125em
+    nav
+      a
+        margin: .5em
+        font-weight: 800
+        font-size: 1.35em
+
+
+
+body.mobile
+  header
+    a.logo
+      font-size: 2.5em
+      line-height: .7em
+      margin: 0
+
+    a.toggle
+      display: block
+      width:  20px
+      height: 9px
+      border-top:    3px solid $anwander-global-background-color
+      border-bottom: 3px solid $anwander-global-background-color
+      background: black
+      position: absolute
+      top:   1.25em
+      right: 1em
+      transition: transform 0.25s ease
+      &:before,
+      &:after
+        transition: opacity 0.25s ease
+        position: absolute
+        top: -6px
+        left: 0
+        width: 20px
+        height: 3px
+        background: black
+        content: ''
+      &:after
+        top: initial
+        bottom: -6px
+
+
+
+    nav
+      position: absolute
+      background: $anwander-global-background-color
+      left: 50%
+      top: $mobile-header-height
+      transform: translate(-50%, -50%) scale(0)
+      transition: transform 0.25s ease
+      a
+        display: block
+        margin: 0
+        padding: 0.5em 1em
+        font-size: 1.25em
+        font-weight: 800
+
+  // &.headroom--not-top
+  //   height: $header-height
+  //   a.logo
+  //     width: 150px
+  //     height: 50px
+  //     top: 0
+
+
+  // &.headroom--unpinned
+
+
+
+body.mobile.navActive
+  header
+    nav
+      transform: translate(-50%, 0) scale(1)
+
+    a.toggle
+      transform: rotate(90deg)
+      &:before,
+      &:after
+        opacity: 0

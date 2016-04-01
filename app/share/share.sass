@@ -1,0 +1,185 @@
+main.share
+  h1
+    text-transform: uppercase
+    font-size: em(24)
+  .asset
+    margin: em(25)
+    display: inline-block
+    vertical-align: top
+    position: relative
+    z-index: 10
+
+    .wrapper
+      width:  300px
+      height: 260px
+      position: relative
+
+      .media
+        cursor: pointer
+        transition: transform 0.25s ease
+        width:  300px
+        height: 260px
+
+        .imago-image,
+        .imagovideo
+          +pos()
+
+        .imago-image
+          overflow: visible
+          img
+            box-shadow: 0 1px 5px rgba(0,0,0,0.3)
+
+
+
+        &:hover
+          transform: scale(1.05)
+
+    .caption
+      margin-top: 10px
+      span
+        display: inline-block
+        vertical-align: baseline
+
+      .count
+        font-size: em(13)
+        margin-right: .5em
+        border: 1px solid lighten(black, 50%)
+        border-radius: 1em
+        padding: .35em .5em 0em .5em
+        min-width: 30px
+        display: none
+
+
+    &.shadow
+      .imago-image img
+        box-shadow: 0 1px 10px rgba(0,0,0,0.3)
+        border: 10px solid white
+      .count
+        display: inline
+
+  .actions
+    position: fixed
+    z-index: 100
+    right: 1em
+    bottom: 1em
+    button
+      background: white
+      outline: none
+.prompt
+  +pos(fixed)
+  display: flex
+  align-items: center
+  justify-content: center
+  z-index: 10
+  background: rgba(255,255,255,0.8)
+
+  .inner
+    width: 320px
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3)
+    min-height: 200px
+    padding: 50px
+    background: white
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    position: relative
+
+    h2
+      text-transform: uppercase
+      font-weight: bold
+
+    button.close
+      position: absolute
+      z-index: 1000
+      top:   15px
+      right: 15px
+      background: url("i/x.png") no-repeat
+      background-size: 100% auto
+      width:  20px
+      height: 20px
+      cursor: pointer
+      transition: transform 0.25s ease
+      border: none
+      &:hover
+        transform: rotate(90deg)
+        background-position: 0px -20px
+
+    .field
+      margin: 20px 0
+      input,
+      textarea
+        border: none
+        padding: 10px 15px
+        text-align: center
+        border-bottom: 1px solid gray
+        &:focus
+          outline: none
+          background: darken(white, 2%)
+        &.ng-pristine
+          border-bottom: 1px solid white
+        &.ng-invalid,
+        &.ng-invalid-required
+          border-bottom: 1px solid red
+        &.ng-valid
+          border-bottom: 1px solid white
+
+      label
+        display: block
+        font-size: 11px
+        text-transform: uppercase
+        letter-spacing: 1px
+        margin-bottom: 5px
+
+    .message
+      display: none
+    &.requested
+      .message
+        display: block
+      form
+        display: none
+
+
+.fullsize-slider
+  +pos(fixed, 0,0,0,0)
+  background: white
+  z-index: 200
+  .slider
+    +pos()
+    .slide
+      .imago-image
+        +pos(absolute, 20px, 20px, 20px, 20px)
+      .caption
+        position: absolute
+        left:  200px
+        right: 200px
+        bottom: -28px
+        text-align: center
+  button.close
+    position: absolute
+    z-index: 1000
+    top: 15px
+    right: 15px
+    background: url("i/x.png") no-repeat
+    background-size: 100% auto
+    width:  50px
+    height: 50px
+    cursor: pointer
+    transition: transform 0.25s ease
+    border: none
+    outline: 0
+    &:hover
+      transform: rotate(90deg)
+
+  .sharewidget
+    position: absolute
+    bottom: 10px
+    right: 10px
+    .action
+      display: inline-block
+      margin-left: 20px
+    .icons
+      display: inline-block
+      margin: 0
+      &.show
+        display: none

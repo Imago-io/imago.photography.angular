@@ -1,0 +1,54 @@
+@import base/variables
+@import ../bower_components/normalize.css/normalize
+
+// imago imports
+@import ../bower_components/imago/css/mixin
+@import ../bower_components/imago/css/imago
+@import ../bower_components/imago/css/slider
+@import ../bower_components/imago/css/nojs
+@import ../bower_components/imago/css/not-supported
+@import ../bower_components/sass-mediaqueries/media-queries
+
+@import //maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
+
+// theme imports
+// @import base/fonts
+@import base/typography
+@import base/buttons
+@import base/forms
+@import base/imago
+@import base/grid
+@import base/icons
+@import base/layout
+
+// sections
+@import header/header
+@import footer/footer
+@import list/list
+@import gallery/gallery
+@import page/page
+
+
+
+.imago-slider-content
+  +pos()
+  > .next,
+  > .prev
+    position: absolute
+    z-index: 5
+    top:    60px
+    bottom: 60px
+    width: 30%
+  > .next
+    right: 0
+    &:hover
+      cursor: url("i/next.png"), e-resize
+  > .prev
+    left: 0
+    &:hover
+      cursor: url("i/prev.png"), w-resize
+  .slide,
+  .imago-image-content,
+  .imago-video-content,
+  .media
+    +pos()

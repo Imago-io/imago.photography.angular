@@ -1,0 +1,21 @@
+span © #{ new Date().getFullYear() } {{tenantSettings.settings.name}}
+
+a(
+  ng-href="{{tenantSettings.sociallinks.instagram}}"
+  ng-show="tenantSettings.sociallinks.instagram"
+  target="_blank").fa.fa-instagram
+a(
+  ng-href="{{tenantSettings.sociallinks.facebook}}"
+  ng-show="tenantSettings.sociallinks.facebook"
+  target="_blank").fa.fa-facebook
+a(
+  ng-href="{{tenantSettings.sociallinks.twitter}}"
+  ng-show="tenantSettings.sociallinks.twitter"
+  target="_blank").fa.fa-twitter
+
+a(
+  ng-href="{{tenantSettings.sociallinks.tumblr}}"
+  ng-show="tenantSettings.sociallinks.tumblr"
+  target="_blank").fa.fa-tumblr
+
+//- a(ng-href="https://www.youtube.com/channel/UCTrVEEiQw-89YPl2tMgv6qg" target="_blank" title="Youtube").fa.fa-youtube

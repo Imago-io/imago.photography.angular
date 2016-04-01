@@ -1,0 +1,28 @@
+.subscribe
+
+  .text(ng-bind-html="page.data.fields.text.value")
+
+  pre {{ subscribe.data | json }}
+
+  form.imago-form(imago-subscribe="subscribe.form" name="subscribe" ng-submit="imagosubscribe.submit(subscribe)" novalidate)
+    div.imago-field
+      label(for="name") Name
+      input(
+        type="text"
+        name="name"
+        ng-model="subscribe.form.name"
+        placeholder="Name"
+        required
+        )
+
+    div.imago-field
+      label(for="email") Email
+      input(
+        type="email"
+        name="email"
+        ng-model="subscribe.form.email"
+        placeholder="Email"
+        required
+        )
+    div.formcontrols
+      button.send(type="submit" ng-disabled="subscribe.$invalid") Subscribe

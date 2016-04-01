@@ -1,0 +1,11 @@
+.instagram
+  a.instagram-link(ng-href="https://instagram.com/mickeymurphysdaughter/" target="_blank") Instagram Page
+  .wrapper
+    ul
+      li(
+        ng-repeat="post in instagram.data"
+        ng-style="post.style"
+        )
+        a(ng-href="{{ post.link }}" target="_blank")
+          .caption(ng-if="post.caption.text")
+            .content(ng-bind-html="post.caption.text | linkify: 'instagram'")

@@ -1,0 +1,29 @@
+.imagoimage,
+.imagovideo
+  .spin
+    border-top: 6px solid rgba(180,180,180,0.2)
+  .spin2
+
+
+.imagoslider
+  +pos()
+  > .next,
+  > .prev
+    position: absolute
+    z-index: 5
+    top:    60px
+    bottom: 60px
+    width: 30%
+  > .next
+    right: 0
+    &:hover
+      cursor: url("i/next.png"), e-resize
+  > .prev
+    left: 0
+    &:hover
+      cursor: url("i/prev.png"), w-resize
+  .slide,
+  .imagoimage,
+  .imagovideo,
+  .media
+    +pos()

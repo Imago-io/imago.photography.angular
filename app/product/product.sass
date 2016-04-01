@@ -1,0 +1,245 @@
+main.product
+
+  padding-top: $body-burger-padding-top
+  margin-left: $body-padding-left
+  margin-right: 34em
+  margin-bottom: 0
+  @include max-screen($large)
+    margin-right: 28em
+  @include max-screen($medium)
+    margin-right: $body-padding-right
+  @include max-screen($xsmall)
+    margin-left: $body-padding-right
+
+  .images
+    padding-top: 3em
+    padding-bottom: 5em
+    .item
+      margin-bottom: 10em
+      position: relative
+      &:nth-child(n+5)
+        margin-bottom: 0
+
+    .imagoimage,
+    .imagovideo
+      position: relative
+
+  .info
+    position: fixed
+    top: $body-burger-padding-top - .25rem
+    right: $body-padding-right
+    width: 24em
+    height: calc(100vh - #{$body-burger-padding-top})
+    overflow-y: auto
+    @include max-screen($large)
+      width: 18em
+    @include max-screen($medium)
+      position: static
+      width: auto
+      height: auto
+
+    h2
+      font-size: 2.5em
+      letter-spacing: 0
+      margin-top: 0
+
+    .tabs
+      button
+        font-size: 0.8em
+        letter-spacing: 0.5px
+        line-height: 1.1em
+        text-transform: uppercase
+        font-family: "Aktiv Grotesk W01 Medium"
+        border: 0
+        padding: 0
+        margin: 0
+        margin-bottom: 1em
+        margin-right: 2em
+        background: none
+
+        &:active
+
+        &.active
+          border-bottom: 1px solid lighten(black, 70%)
+
+
+    .options
+      margin-bottom: 1.5em
+      label
+        font-size: 0.8em
+        letter-spacing: 0.5px
+        line-height: 1.1em
+        text-transform: uppercase
+        font-family: "Aktiv Grotesk W01 Medium"
+        display: block
+        margin-bottom: .5em
+      .option
+        width: 50px
+        display: inline-block
+        vertical-align: top
+        button
+          vertical-align: top
+          width:  2em
+          height: 2em
+          border-radius: 50%
+          padding: 0
+          margin: 0
+          border: none
+          position: relative
+          top: 0
+          padding-bottom: 5px
+          background-color: transparent
+        &.selected button:after
+          content: ''
+          +pos()
+          top:  0.35em
+          left: 0.35em
+          z-index: 22
+          border: 2px solid rgba(black, 0.5)
+          border-radius: 50%
+          width:  1.3em
+          height: 1.3em
+        &.selected button.black:after,
+        &.selected button.keichii-district-sky-g-15:after
+          border: 2px solid rgba(white, 0.5)
+
+
+
+      .error
+        display: none
+        color: #e35854
+        font-weight: 500
+        margin-top: 10px
+        letter-spacing: 1px
+        font-size: em(14)
+
+      &.error
+        // background: lighten(red, 40%)
+        .error
+          display: block
+
+      &.sizes .option
+        min-width: 2em
+        height: 2em
+        padding: .25rem .5rem
+        text-align: center
+        font-size: .75em
+        line-height: normal
+        font-size: em(16)
+        font-weight: 500
+        &.selected
+          background: red
+          color: white
+
+    .price
+      font-family: "Plantin W01 Regular"
+      font-style: italic
+      font-size: 2em
+      margin-top: 1.5em
+      margin-bottom: 1em
+      &:before
+        content: 'Total '
+        display: inline
+      div
+        display: inline
+
+    .message
+      .low-stock,
+      .no-stock,
+      .not-available,
+      .presale
+        color: #e35854
+        font-family: "Plantin W01 Regular"
+        font-style: italic
+        font-size: 1em
+        margin: 1em 0
+
+    button.addToCart
+      display: block
+      font-family: "Aktiv Grotesk W01 Medium"
+      text-transform: uppercase
+      padding: 1.5em
+      background-color: black
+      color: white
+      font-size: em(15)
+      border: none
+      letter-spacing: 1px
+      margin: 0
+      width: 100%
+      // &:enabled:hover
+      //   color: darken(white, 30%)
+      // &:enabled:active
+      //   color: white
+      //   background: lighten(black, 20%)
+      //   color: black
+      //   background: darken(white, 3%)
+
+      &:disabled
+        background-color: lighten(black, 50%)
+
+  .bottom-info
+    text-align: center
+    h2
+      font-size: 2.5em
+      letter-spacing: 0
+      margin-bottom: 0.25em
+    h3
+      font-size: 1.75em
+      font-style: italic
+      margin-top: 0
+
+    h4
+      font-family: "Aktiv Grotesk W01 Medium"
+      text-transform: uppercase
+      font-size: .8em
+      letter-spacing: 0
+      margin: 5em 0
+
+    .ribbon p
+      margin-left: auto
+      margin-right: auto
+      max-width: 30em
+    .imagoimage
+      margin-left: -$body-padding-left * 2
+
+
+body.mobile
+  main.product
+    margin-left: 0
+    margin-right: 0
+    padding-top: $mobile-body-padding-top
+    padding-left: $mobile-body-padding-left
+    padding-right: $mobile-body-padding-right
+    padding-bottom: $mobile-footer-height
+
+  .images
+    padding-top: 0
+    h1, h2
+      margin-top: 0
+      margin-bottom: 1.5em
+
+  .info
+    position: static
+    text-align: center
+    width: auto
+    overflow-y: hidden
+    margin: .2em 0
+    margin-bottom: 4em
+    height: auto
+    max-height: auto
+
+    button.addToCart
+      width: auto
+      margin: 0 auto
+      padding-left:  4em
+      padding-right: 4em
+
+  .bottom-info
+    display: none
+    .imagoimage
+      margin-left: -$mobile-body-padding-left * 2
+
+
+body.product
+  .subscribe-widget
+    display: none

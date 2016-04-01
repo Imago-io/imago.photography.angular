@@ -1,0 +1,36 @@
+main.home
+  imago-slider(
+    data="page.data.assets"
+    animation="fade"
+    loop="true"
+    )
+    .slide(ng-repeat="asset in imagoslider.assets track by asset._id"
+      ng-if="currentIndex === $index"
+      ng-switch="asset.type")
+      imago-video(data="asset" ng-switch-when="video")
+      imago-image(data="asset" ng-switch-default)
+    .slider-index
+      a(ng-repeat="asset in imagoslider.assets track by asset._id"
+        ng-class="{ 'active': currentIndex === $index }"
+        ng-click="imagoslider.setCurrent($index)"
+        ng-if="currentIndex === $index") {{$index + 1}} / {{imagoslider.assets.length}}
+
+
+
+  //- .slider(imago-slider="home.data.assets"
+  //-   animation="fade|slide|sliderotate"
+  //-   loop="true"
+  //-   )
+  //-   .slide(ng-repeat="asset in imagoslider.assets track by asset._id"
+  //-     ng-if="currentIndex === $index"
+  //-     ng-switch="asset.type")
+  //-     div(imago-video="asset" ng-switch-when="video")
+  //-     div(imago-image="asset" ng-switch-default)
+  //-     .caption(ng-if="currentIndex === $index")
+  //-       {{ home.data | meta: 'title' }} {{currentIndex + 1}}/{{home.data.assets.length}}
+  //-   .slider-index
+  //-     a(
+  //-       ng-repeat="slide in home.data.assets"
+  //-       ng-class="{ 'active': currentIndex === $index }"
+  //-       ng-click="imagoslider.setCurrent($index)"
+  //-       )

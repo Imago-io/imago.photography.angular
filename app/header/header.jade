@@ -1,0 +1,9 @@
+a(ui-sref="home").logo {{tenantSettings.settings.name}}
+  a(imago-click="header.activate()" stop-propagation).toggle
+
+nav
+  a(ui-sref="list({category: 'advertising'})" ui-sref-active="active") Advertising
+  a(ui-sref="list({category: 'editorial'})" ui-sref-active="active") Editorial
+  //- a(ui-sref="list({category: 'film'})" ui-sref-active="active") Film
+  a(ui-sref="about" ui-sref-active="active") About
+  a(ui-sref="contact" ui-sref-active="active") Contact
