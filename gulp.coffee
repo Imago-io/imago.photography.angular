@@ -1,3 +1,6 @@
+setdefault = true
+apikey = '2EL4Eziu346DoOUdyyTRKURUa'
+
 dest = 'public'
 src  = 'app'
 
@@ -33,13 +36,14 @@ paths =
     'bower_components/fastclick/lib/fastclick.js'
     'bower_components/polyfill-Number.toLocaleString-with-Locales/polyfill.number.toLocaleString.js'
     'bower_components/lodash/lodash.js'
-    'bower_components/bowser/bowser.js'
+    'bower_components/bowser/src/bowser.js'
     'bower_components/angular/angular.js'
     'bower_components/angular-animate/angular-animate.js'
     'bower_components/angular-touch/angular-touch.js'
     'bower_components/angular-ui-router/release/angular-ui-router.js'
     'bower_components/angulartics/src/angulartics.js'
-    'bower_components/angulartics-google-analytics/lib/angulartics-google-analytics.js'
+    'bower_components/angulartics-facebook-pixel/dist/angulartics-facebook-pixel.min.js'
+    'bower_components/angulartics-google-analytics/lib/angulartics-ga.js'
     'bower_components/angular-elastic/elastic.js'
     'bower_components/angular-inview/angular-inview.js'
 
@@ -65,6 +69,7 @@ paths =
     'bower_components/imago/dist/imago-ecommerce.js'
     'bower_components/imago/dist/imago-contact.js'
     'bower_components/imago/dist/imago-shop.js'
+    'bower_components/imago/dist/imago-fetch.js'
 
     # custom
     # 'bower_components/moment/moment.js'
@@ -75,6 +80,9 @@ paths =
   ]
 
 configGulp =
+  setup:
+    apikey      : apikey
+    setdefault  : setdefault
   src     : src
   dest    : dest
   targets : targets

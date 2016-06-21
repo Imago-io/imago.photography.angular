@@ -1,8 +1,7 @@
-tenant     = 'demophotography'
-
 angular.module 'app', [
   'angulartics'
   'angulartics.google.analytics'
+  'angulartics.facebook.pixel'
   'ngAnimate'
   'ngTouch'
   'ui.router'
@@ -22,15 +21,10 @@ class Setup extends Config
 
   constructor: ($httpProvider, $provide, $sceProvider, $locationProvider, $compileProvider, $stateProvider, $urlRouterProvider, $analyticsProvider, imagoModelProvider) ->
 
-    # imagoModelProvider.setHost '//localhost:8000'
-
     $sceProvider.enabled false
 
     # http defaults config START
     $httpProvider.useApplyAsync true
-    $httpProvider.defaults.headers.common['NexClient']    = 'public'
-    $httpProvider.defaults.headers.common['NexTenant']    = "#{tenant}"
-    # http defaults config ENDS
 
     $provide.decorator '$exceptionHandler', [
       '$delegate'
@@ -111,16 +105,19 @@ class Load extends Run
       $rootScope.mobileClass = if $rootScope.mobile then 'mobile' else 'desktop'
       FastClick.attach(document.body)
 
-    $rootScope.hideMenu = ->
-      $rootScope.navActive = false
+    $rootScope.toggleMenu = (status) ->
+      if _.isUndefined status
+        $rootScope.navActive = !$rootScope.navActive
+      else
+        $rootScope.navActive =  status
 
-
-    # general code
     $rootScope.$on '$stateChangeSuccess', (evt) ->
+      $rootScope.urlPath = $location.path()
       state = $state.current.name.split('.').join(' ')
-      path  = $location.path().split('/').join(' ')
+      path  = $rootScope.urlPath.split('/').join(' ')
       path = 'home' if path is ' '
       $rootScope.state = state
       $rootScope.path  = path
-      $rootScope.hideMenu()
+      $rootScope.toggleMenu(false)
+      # ngProgress.done()
 

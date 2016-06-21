@@ -1,6 +1,6 @@
 {
   "name": "angular-nex9-theme",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "authors": [
     "Nex9 LLC <mail@nex9.com>"
   ],
@@ -26,9 +26,10 @@
     "angulartics": "*",
     "angulartics-google-analytics": "*",
     "imago": "Imago-io/imago.angular#master",
-    "normalize.css": "~3",
+    "angulartics-facebook-pixel": "^0.2.0",
+    "normalize.css": "~4",
     "sass-mediaqueries": "~1",
-    "headroom.js": "^0.7.0",
+    "headroom.js": "https://npmcdn.com/headroom.js/bower.zip",
     "fastclick": "~1"
   },
   "resolutions": {
