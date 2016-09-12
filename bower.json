@@ -29,7 +29,7 @@
     "angulartics-facebook-pixel": "^0.2.0",
     "normalize.css": "~4",
     "sass-mediaqueries": "~1",
-    "headroom.js": "https://npmcdn.com/headroom.js/bower.zip",
+    "headroom.js": "https://unpkg.com/headroom.js/bower.zip",
     "fastclick": "~1"
   },
   "resolutions": {
