@@ -41,6 +41,7 @@ paths =
     'bower_components/angular-animate/angular-animate.js'
     'bower_components/angular-touch/angular-touch.js'
     'bower_components/angular-ui-router/release/angular-ui-router.js'
+    'bower_components/angular-ui-router/release/stateEvents.js'
     'bower_components/angulartics/src/angulartics.js'
     'bower_components/angulartics-facebook-pixel/dist/angulartics-facebook-pixel.min.js'
     'bower_components/angulartics-google-analytics/lib/angulartics-ga.js'

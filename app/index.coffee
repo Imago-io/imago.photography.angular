@@ -5,6 +5,7 @@ angular.module 'app', [
   'ngAnimate'
   'ngTouch'
   'ui.router'
+  'ui.router.state.events'
   'templatesApp'
   'angular-inview'
   'imago'
